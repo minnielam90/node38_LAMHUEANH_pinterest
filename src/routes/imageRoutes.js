@@ -23,7 +23,7 @@ imageRoutes.get(
   getCreatedImageByUserId
 );
 imageRoutes.delete(
-  "/deleteimage/:hinhId/:userId",
+  "/deleteimage/:hinhId",
   lockApi,
   verifyUserToken,
   deleteImage

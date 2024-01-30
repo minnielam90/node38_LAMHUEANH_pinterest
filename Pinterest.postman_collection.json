@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "c9e31855-442f-450c-be60-92200cd34a98",
+		"name": "Pinterest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31805394"
+	},
+	"item": [
+		{
+			"name": "test auth login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test auth signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test5@gmail.com\",\r\n    \"mat_khau\": \"123456\",\r\n    \"ho_ten\": \"Nguyen Van A5\",\r\n    \"tuoi\": 35\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-user-info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/image/get-user-info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"image",
+						"get-user-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-image-save-by-userid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/image/get-image-save-by-userid/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"image",
+						"get-image-save-by-userid",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-image-create-by-userid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/image/get-image-create-by-userid/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"image",
+						"get-image-create-by-userid",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteimage",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/image/deleteimage/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"image",
+						"deleteimage",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "image-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/home/image-list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"home",
+						"image-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-image-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/home/search-image-list/lights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"home",
+						"search-image-list",
+						"lights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "image-info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/detail/image-info/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"detail",
+						"image-info",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "comment-info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/detail/comment-info/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"detail",
+						"comment-info",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save-image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/detail/save-image/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"detail",
+						"save-image",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post-comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nguoi_dung_id\": 1,\r\n  \"noi_dung\": \"This is a test comment.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/detail/post-comment/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"detail",
+						"post-comment",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit-user-info",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuZ3VvaV9kdW5nX2lkIjoxMywiaWF0IjoxNzA2MjU4OTgzLCJleHAiOjE3Mzc4MTY1ODN9.RS5u9zP624UsxkYJnTIw-AbnvgRDCmJBcrGs0wO23u8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"mat_khau\": \"updated_password\",\r\n  \"ho_ten\": \"Updated User\",\r\n  \"tuoi\": 25,\r\n  \"anh_dai_dien\": \"updated_avatar.jpg\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/user/edit-user-info/39",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"user",
+						"edit-user-info",
+						"39"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload-image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Minnie Lam/Downloads/MCDBAVVEC017-d4ece24.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8084/user/upload-avatar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"user",
+						"upload-avatar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

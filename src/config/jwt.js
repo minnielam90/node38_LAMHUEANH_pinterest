@@ -37,7 +37,6 @@ const lockApi = (req, res, next) => {
 const verifyUserToken = (req, res, next) => {
   try {
     let { token } = req.headers;
-    let { userId } = req.params;
 
     console.log("Token received:", token);
 
@@ -53,15 +52,10 @@ const verifyUserToken = (req, res, next) => {
       return res.status(401).json({ message: "Invalid Token!" });
     }
 
-    // Set user ID from token to req.user
+    // Attach user ID from token to req.user
     req.user = { id: verifyToken.data.nguoi_dung_id };
 
     console.log("User ID from token:", req.user.id);
-
-    // Ensure that the user making the request is the same as the user being updated
-    if (Number(req.userIdFromToken) !== Number(userId)) {
-      return res.status(401).json({ message: "Unauthorized" });
-    }
 
     next();
   } catch (error) {

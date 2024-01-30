@@ -57,6 +57,7 @@ const getCommentInfo = async (req, res) => {
 const getSaveImage = async (req, res) => {
   try {
     let { hinhId } = req.params;
+    const userId = req.user.id;
 
     let checkHinh = await conn.hinh_anh.findByPk(hinhId);
 
@@ -64,6 +65,7 @@ const getSaveImage = async (req, res) => {
       let checkSaved = await conn.luu_anh.findOne({
         where: {
           hinh_id: hinhId,
+          nguoi_dung_id: userId,
         },
         attributes: ["luu_anh_id", "hinh_id", "nguoi_dung_id", "ngay_luu"],
       });
@@ -93,7 +95,8 @@ const getSaveImage = async (req, res) => {
 const postCommentImage = async (req, res) => {
   try {
     const { hinhId } = req.params;
-    const { nguoi_dung_id, noi_dung } = req.body;
+    const { noi_dung } = req.body;
+    const nguoi_dung_id = req.user.id; // Use the authenticated user's ID
 
     // Check if the image exists
     const checkHinh = await conn.hinh_anh.findByPk(hinhId);

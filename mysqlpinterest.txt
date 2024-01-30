@@ -1,0 +1,161 @@
+# tạo table nguoi_dung
+
+CREATE TABLE nguoi_dung(
+	nguoi_dung_id INT PRIMARY KEY AUTO_INCREMENT,
+	email VARCHAR (255),
+	mat_khau VARCHAR (255),
+	ho_ten VARCHAR (100),
+	tuoi INT,
+	anh_dai_dien VARCHAR (100)
+)
+
+# select data
+SELECT * from nguoi_dung
+
+
+
+# tạo table hinh_anh
+
+CREATE TABLE hinh_anh(
+	hinh_id INT PRIMARY KEY AUTO_INCREMENT,
+	ten_hinh VARCHAR (255),
+	duong_dan VARCHAR (255),
+	mo_ta VARCHAR (2000),
+	nguoi_dung_id INT, FOREIGN KEY(nguoi_dung_id) REFERENCES nguoi_dung(nguoi_dung_id)
+)
+
+# select data
+SELECT * from hinh_anh
+
+
+
+# tạo table binh_luan
+
+CREATE TABLE binh_luan(
+	binh_luan_id INT PRIMARY KEY AUTO_INCREMENT,
+	nguoi_dung_id INT, FOREIGN KEY(nguoi_dung_id) REFERENCES nguoi_dung(nguoi_dung_id),
+	hinh_id INT, FOREIGN KEY(hinh_id) REFERENCES hinh_anh(hinh_id),
+	ngay_binh_luan DATE,
+	noi_dung VARCHAR (1000)
+)
+
+# select data
+SELECT * from binh_luan
+
+
+# tạo table luu_anh
+
+CREATE TABLE luu_anh(
+	luu_anh_id INT PRIMARY KEY AUTO_INCREMENT,
+	nguoi_dung_id INT, FOREIGN KEY(nguoi_dung_id) REFERENCES nguoi_dung(nguoi_dung_id),
+	hinh_id INT, FOREIGN KEY(hinh_id) REFERENCES hinh_anh(hinh_id),
+	ngay_luu DATE
+)
+
+# select data
+SELECT * from luu_anh
+
+
+# INSERT DATA
+# Insert table nguoi_dung
+INSERT INTO nguoi_dung(email, mat_khau, ho_ten, tuoi, anh_dai_dien) VALUES
+('user1@example.com', 'password1', 'John Doe', 25, 'path/to/avatar1.jpg'),
+('user2@example.com', 'password2', 'Jane Smith', 30, 'path/to/avatar2.jpg'),
+('user3@example.com', 'password3', 'Bob Johnson', 22, 'path/to/avatar3.jpg'),
+('user4@example.com', 'password4', 'Alice Brown', 28, 'path/to/avatar4.jpg'),
+('user5@example.com', 'password5', 'Charlie Davis', 35, 'path/to/avatar5.jpg'),
+('user6@example.com', 'password6', 'Eva White', 26, 'path/to/avatar6.jpg'),
+('user7@example.com', 'password7', 'Michael Lee', 32, 'path/to/avatar7.jpg'),
+('user8@example.com', 'password8', 'Olivia Taylor', 29, 'path/to/avatar8.jpg'),
+('user9@example.com', 'password9', 'Daniel Miller', 24, 'path/to/avatar9.jpg'),
+('user10@example.com', 'password10', 'Sophia Wilson', 31, 'path/to/avatar10.jpg'),
+('user11@example.com', 'password11', 'Grace Anderson', 27, 'path/to/avatar11.jpg'),
+('user12@example.com', 'password12', 'Liam Martin', 33, 'path/to/avatar12.jpg'),
+('user13@example.com', 'password13', 'Ava Thompson', 29, 'path/to/avatar13.jpg'),
+('user14@example.com', 'password14', 'Noah Turner', 25, 'path/to/avatar14.jpg'),
+('user15@example.com', 'password15', 'Sophie Garcia', 31, 'path/to/avatar15.jpg');
+
+#Insert table hinh_anh
+INSERT INTO hinh_anh (ten_hinh, duong_dan, mo_ta, nguoi_dung_id) VALUES
+('Nature Pic 1', 'path/to/nature1.jpg', 'Beautiful landscape with mountains and rivers.', 1),
+('Travel Photo 1', 'path/to/travel1.jpg', 'Exploring new places and cultures.', 2),
+('Family Gathering', 'path/to/family.jpg', 'Memorable moments with loved ones.', 3),
+('City Lights', 'path/to/citylights.jpg', 'Night view of a bustling city.', 4),
+('Beach Sunset', 'path/to/beachsunset.jpg', 'Relaxing at the beach during sunset.', 5),
+('Adventure Time', 'path/to/adventure.jpg', 'Thrilling outdoor adventures.', 6),
+('Celebration', 'path/to/celebration.jpg', 'Joyful occasions and celebrations.', 7),
+('Portrait Shot', 'path/to/portrait.jpg', 'Capturing the essence of a person.', 8),
+('Urban Exploration', 'path/to/urban.jpg', 'Exploring the urban landscape.', 9),
+('Sunrise Bliss', 'path/to/sunrise.jpg', 'Starting the day with a beautiful sunrise.', 10),
+('Mountain View', 'path/to/mountain.jpg', 'Scenic view of majestic mountains.', 11),
+('Culinary Delight', 'path/to/culinary.jpg', 'Delicious and beautifully plated food.', 12),
+('Gardening Time', 'path/to/garden.jpg', 'Relaxing in the midst of a vibrant garden.', 13),
+('Winter Wonderland', 'path/to/winter.jpg', 'Snow-covered landscape during winter.', 14),
+('Fitness Journey', 'path/to/fitness.jpg', 'Dedication to a healthy lifestyle.', 15),
+('Summer Vibes', 'path/to/summer.jpg', 'Enjoying the warmth of summer.', 16),
+('Architectural Wonders', 'path/to/architecture.jpg', 'Marveling at iconic buildings.', 17),
+('Pet Companionship', 'path/to/pets.jpg', 'Cherishing moments with furry friends.', 18),
+('Night Sky', 'path/to/nightsky.jpg', 'Stargazing under the night sky.', 19),
+('Fashion Forward', 'path/to/fashion.jpg', 'Expressing style through fashion.', 20),
+('Artistic Creations', 'path/to/art.jpg', 'Showcasing creative artworks.', 21),
+('Rural Serenity', 'path/to/rural.jpg', 'Tranquility in the countryside.', 22),
+('Tech Enthusiast', 'path/to/tech.jpg', 'Exploring the world of technology.', 23),
+('Fitness Goals', 'path/to/fitness2.jpg', 'Pushing boundaries in fitness.', 24),
+('Safari Adventure', 'path/to/safari.jpg', 'Encounters with wildlife in the safari.', 25),
+('Epic Road Trip', 'path/to/roadtrip.jpg', 'Embarking on a memorable road journey.', 26),
+('Cultural Festivities', 'path/to/cultural.jpg', 'Participating in cultural celebrations.', 27),
+('Cozy Reading Corner', 'path/to/reading.jpg', 'Finding solace in a good book.', 28),
+('Aquatic Exploration', 'path/to/aquatic.jpg', 'Discovering the wonders of the ocean.', 29),
+('Autumn Splendor', 'path/to/autumn.jpg', 'Admiring the colors of autumn foliage.', 30);
+
+
+#Insert table binh_luan
+INSERT INTO binh_luan (nguoi_dung_id, hinh_id, ngay_binh_luan, noi_dung) VALUES
+(1, 1, '2023-01-15', 'This is a stunning nature photo!'),
+(2, 2, '2023-02-20', 'I love the sense of adventure in this picture.'),
+(3, 3, '2023-03-10', 'What a heartwarming family moment!'),
+(4, 4, '2023-04-05', 'The city lights are mesmerizing.'),
+(5, 5, '2023-05-12', 'Sunset at the beach is my favorite time of the day.'),
+(6, 6, '2023-06-18', 'Looks like an exciting adventure!'),
+(7, 7, '2023-07-25', 'Celebrating joyous moments together.'),
+(8, 8, '2023-08-08', 'Capturing the essence of the person beautifully.'),
+(9, 9, '2023-09-14', 'Urban exploration is always fascinating.'),
+(10, 10, '2023-10-21', 'Starting the day with a serene sunrise.'),
+(11, 11, '2023-11-10', 'The mountain view is breathtaking!'),
+(12, 12, '2023-12-05', 'Drooling over that culinary delight!'),
+(13, 13, '2024-01-02', 'Gardening is such a peaceful activity.'),
+(14, 14, '2024-02-15', 'The winter landscape looks magical.'),
+(15, 15, '2024-03-20', 'Inspiring fitness journey!');
+
+#Insert table luu_anh
+INSERT INTO luu_anh (nguoi_dung_id, hinh_id, ngay_luu) VALUES
+(1, 1, '2023-01-15'),
+(2, 2, '2023-02-20'),
+(3, 3, '2023-03-10'),
+(4, 4, '2023-04-05'),
+(5, 5, '2023-05-12'),
+(6, 6, '2023-06-18'),
+(7, 7, '2023-07-25'),
+(8, 8, '2023-08-08'),
+(9, 9, '2023-09-14'),
+(10, 10, '2023-10-21'),
+(11, 11, '2023-11-10'),
+(12, 12, '2023-12-05'),
+(13, 13, '2024-01-02'),
+(14, 14, '2024-02-15'),
+(15, 6, '2024-03-20'),
+(16, 5, '2024-04-10'),
+(17, 1, '2024-05-18'),
+(18, 8, '2024-06-25'),
+(19, 14, '2024-07-08'),
+(20, 2, '2024-08-14'),
+(21, 9, '2024-09-21'),
+(11, 10, '2024-10-10'),
+(23, 5, '2024-11-05'),
+(24, 4, '2024-12-02'),
+(29, 5, '2025-01-15'),
+(26, 6, '2025-02-20'),
+(20, 7, '2025-03-10'),
+(28, 8, '2025-04-05'),
+(39, 9, '2025-05-12'),
+(39, 3, '2025-06-18');
