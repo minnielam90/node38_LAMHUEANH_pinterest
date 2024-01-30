@@ -34,10 +34,6 @@ const login = async (req, res) => {
     } else {
       res.status(404).send("Login failed!");
     }
-
-    // trường hợp 2: nếu không tồn tại -> báo lỗi
-
-    // res.send({ email, mat_khau });
   } catch (error) {
     res.send(`Error: ${error}`);
   }
@@ -45,7 +41,7 @@ const login = async (req, res) => {
 
 const signUp = async (req, res) => {
   try {
-    let { email, mat_khau, ho_ten, tuoi } = req.body;
+    let { email, mat_khau, ho_ten, tuoi, anh_dai_dien } = req.body;
 
     // kiểm tra user đã tồn tại trong DB
     let existUser = await conn.nguoi_dung.findOne({
@@ -65,13 +61,12 @@ const signUp = async (req, res) => {
         mat_khau: encodePassword,
         ho_ten,
         tuoi,
+        anh_dai_dien: anh_dai_dien,
       };
 
       await conn.nguoi_dung.create(newUser);
-      res.status(201).send("User is created successfully!");
+      res.status(201).send("Sign up successfully!");
     }
-
-    // trường hợp 2: nếu chưa -> tạo user
   } catch (error) {
     res.status(500).send(`Error: ${error}`);
   }
