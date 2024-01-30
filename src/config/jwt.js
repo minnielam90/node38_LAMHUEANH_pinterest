@@ -38,15 +38,11 @@ const verifyUserToken = (req, res, next) => {
   try {
     let { token } = req.headers;
 
-    console.log("Token received:", token);
-
     if (!token) {
       return res.status(401).json({ message: "Unauthorized" });
     }
 
     const verifyToken = checkToken(token);
-
-    console.log("Token verification result:", verifyToken);
 
     if (verifyToken.statusCode === 401) {
       return res.status(401).json({ message: "Invalid Token!" });
@@ -54,8 +50,6 @@ const verifyUserToken = (req, res, next) => {
 
     // Attach user ID from token to req.user
     req.user = { id: verifyToken.data.nguoi_dung_id };
-
-    console.log("User ID from token:", req.user.id);
 
     next();
   } catch (error) {

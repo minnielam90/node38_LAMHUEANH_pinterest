@@ -55,40 +55,6 @@ const editUserInfo = async (req, res) => {
   }
 };
 
-// POST thêm một ảnh của user
-// const uploadSingleImage = (req, res) => {
-//   verifyUserToken(req, res, async () => {
-//     try {
-//       // Insert a new record into the hinh_anh table
-//       const newImage = await conn.hinh_anh.create({
-//         ten_hinh: req.file.filename,
-//         duong_dan: req.file.path,
-//         nguoi_dung_id: req.user.id,
-//       });
-
-//       res.status(200).json({
-//         message: "Image uploaded successfully!",
-//         fileDetails: {
-//           hinh_id: newImage.hinh_id,
-//           nguoi_dung_id: req.user.id,
-//           filename: req.file.filename,
-//           originalname: req.file.originalname,
-//           encoding: req.file.encoding,
-//           mimetype: req.file.mimetype,
-//           size: req.file.size,
-//           destination: req.file.destination,
-//           path: req.file.path,
-//         },
-//       });
-//     } catch (error) {
-//       console.error("Error in uploadSingleImage:", error.message);
-//       res
-//         .status(500)
-//         .json({ message: "Internal Server Error", error: error.message });
-//     }
-//   });
-// };
-
 const uploadSingleImage = async (req, res) => {
   try {
     const userIdFromRoute = req.params.userId;
